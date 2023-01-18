@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <script src="https://play.workadventu.re/iframe_api.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script>
+            WA.onInit().then(() => {
+                document.getElementById("player_wa_id").value = WA.player.id;
+            });
+        </script>
+        
+        <h1>Welcome on BS Adventure !</h1>
+        <p>Please enter your information :</p>
+        <form method="POST" action="https://workadventure-api-bs.herokuapp.com/update">
+            <input type="text" name="wa_id" id="player_wa_id" style="visibility: hidden;">
+            <div>
+                <label for="name">First Name</label>
+                <input type="text" name="name" placeholder="Harry" required>    
+            </div>
+            <div>
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" placeholder="Potter" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="harry.potter@poudlard.com" required>
+            </div>
+            <input type="submit">
+        </form>
+    </body>
+</html>
