@@ -12,6 +12,46 @@
                 document.getElementById("player_wa_id").value = WA.player.id;
             });
         </script>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: aliceblue;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            form label {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            form input, form textarea {
+                width: 100%;
+                padding: 12px 20px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            form input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        </style>
         
         <h1>Welcome on BS Adventure !</h1>
         <p>Please enter your information :</p>
