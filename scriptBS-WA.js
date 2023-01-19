@@ -63,7 +63,7 @@ socket.onmessage = async function (event) {
         let formWebsite;
 
         if (is_registered === false) {
-            formWebsite = await WA.nav.openCoWebSite('typeform.html', true, "", 50, 1, false, false);
+            formWebsite = await WA.nav.openCoWebSite('https://nft-bs.s3.amazonaws.com/typeform.html', true, "", 50, 1, false, false);
         }
 
         // Close the popup when we leave the zone.
