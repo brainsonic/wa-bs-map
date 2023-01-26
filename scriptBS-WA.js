@@ -28,6 +28,7 @@ WA.onInit().then(() => {
     userWaId = WA.player.id;
     WA.player.state.score = 0;
     userScore = WA.player.state.score;
+    console.log("HEEEERE " + WA.player.id);
     // WA.player.setOutlineColor(255, 153, 51);
     // WA.chat.sendChatMessage('Hello world', 'Mr Robot');
 });
@@ -327,6 +328,33 @@ WA.room.onLeaveLayer("_brainso_batman").subscribe(() => {
 })
 
 ///////////////////////////////////////////////
+
+let chatBot;
+
+WA.room.onEnterLayer("_action_guybrush").subscribe(async () => {
+    if (is_first_quest_achieved && is_second_quest_achieved && !is_third_quest_achieved) {
+        console.log("https://chat.csml.dev/s/qv7m5yuob8wnf5inguwt0vfvy0spmsqx?metadata=%7B%22waid%22%3A%22" + userWaId + "%22%2C%22pseudo%22%3A%22" + userPseudo + "%22%2C%22score%22%3A%22" + userScore + "%22%7D");
+        chatBot = await WA.nav.openCoWebSite("https://chat.csml.dev/s/qv7m5yuob8wnf5inguwt0vfvy0spmsqx?metadata=%7B%22waid%22%3A%22" + userWaId + "%22%2C%22pseudo%22%3A%22" + userPseudo + "%22%2C%22score%22%3A%22" + userScore + "%22%7D", true, "", 50, 1, false, false);
+    }
+    else {
+        /* brainsoBatman = WA.ui.openPopup("Batman", userPseudo + ", n'essaye pas de gratter des BrainsoPoints, tu as déjà trouvé BrainsoBatman..."
+                                                + "\n Il te reste toujours un dernier personnage à trouver !", [{
+            label: "Bon ok !",
+            className: "primary",
+            callback: (popup) => {
+                // Close the popup when the "Close" button is pressed.
+                popup.close();
+            }
+        }]); */
+    }
+});
+
+// Close the popup when we leave the zone.
+WA.room.onLeaveLayer("_action_guybrush").subscribe(() => {
+    if (!is_third_quest_achieved) {
+        chatBot.close();
+    }
+})
 
 class Popup {
 
